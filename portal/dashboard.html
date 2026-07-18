@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volunteer Dashboard — Moonlit Foundation</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="/assets/custom.css">
+<link rel="stylesheet" href="/portal/assets/portal.css">
+</head>
+<body>
+
+<div class="mf-portal-mobile-topbar">
+  <button id="mfPortalMenuBtn" class="mf-portal-menu-btn" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+  <span class="leading-tight">
+    <span class="block font-bold text-white tracking-wide text-sm">MOONLIT</span>
+    <span class="block text-[9px] tracking-[.3em] text-[#B9C6E2]">VOLUNTEER PORTAL</span>
+  </span>
+  <span class="w-8"></span>
+</div>
+<div id="mfPortalSidebarBackdrop" class="mf-drawer-backdrop"></div>
+
+<div class="mf-portal-shell">
+  <aside class="mf-portal-sidebar" id="mfPortalSidebar">
+    <div class="mf-portal-brand">
+      <span class="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center flex-shrink-0">
+        <i class="fa-solid fa-fire-flame-curved text-white"></i>
+      </span>
+      <span class="leading-tight">
+        <span class="block font-bold text-white tracking-wide text-sm">MOONLIT</span>
+        <span class="block text-[9px] tracking-[.3em] text-[#B9C6E2]">VOLUNTEER PORTAL</span>
+      </span>
+      <button id="mfPortalSidebarClose" class="mf-portal-sidebar-close" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <nav class="mf-portal-nav" id="mfPortalNav">
+      <div class="mf-portal-nav-link is-active" data-section="overview"><i class="fa-solid fa-gauge-high"></i> Overview</div>
+      <div class="mf-portal-nav-link" data-section="idcard"><i class="fa-solid fa-id-card"></i> Volunteer Card</div>
+      <div class="mf-portal-nav-link" data-section="events"><i class="fa-solid fa-calendar-days"></i> Upcoming Events</div>
+      <div class="mf-portal-nav-link" data-section="attendance"><i class="fa-solid fa-clipboard-check"></i> Attendance &amp; Hours</div>
+      <div class="mf-portal-nav-link" data-section="certificates"><i class="fa-solid fa-certificate"></i> Certificates</div>
+      <div class="mf-portal-nav-link is-disabled" data-section=""><i class="fa-solid fa-award"></i> Badges <span class="mf-portal-soon">soon</span></div>
+      <div class="mf-portal-nav-link" data-section="blood"><i class="fa-solid fa-droplet"></i> Blood Donor Status</div>
+      <div class="mf-portal-nav-link" data-section="profile"><i class="fa-solid fa-user"></i> Profile</div>
+      <div class="mf-portal-nav-link" data-section="notifications"><i class="fa-solid fa-bell"></i> Notifications</div>
+      <div class="mf-portal-nav-link" data-section="downloads"><i class="fa-solid fa-download"></i> Downloads</div>
+    </nav>
+    <div class="mf-portal-sidebar-footer">
+      <p class="text-white" id="mfPortalName">—</p>
+      <button id="mfPortalLogout" class="text-[#F5B921] mt-1" style="text-decoration:underline">Log out</button>
+    </div>
+  </aside>
+
+  <main class="mf-portal-main">
+    <p class="mf-portal-section-title" id="mfPortalSectionTitle">Overview</p>
+    <div id="mfPortalContent"><p class="text-[14px] text-[#4B5563]">Loading…</p></div>
+  </main>
+</div>
+
+<div id="mfToast" class="mf-toast" role="status"></div>
+<script src="/assets/config.js"></script>
+<script src="/portal/assets/portal.js"></script>
+</body>
+</html>

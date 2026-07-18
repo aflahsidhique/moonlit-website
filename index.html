@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moonlit Foundation — Lighting Lives. Building Better Tomorrows.</title>
+<meta name="description" content="Moonlit Foundation is a youth-led nonprofit in Kerala empowering communities through blood donation, welfare, disaster relief, environment and youth development.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="shortcut icon" href="assets/images/favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- custom.css → paste into WordPress Customizer → Additional CSS -->
+<link rel="stylesheet" href="assets/custom.css">
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════
+     HEADER  →  Elementor: Header template (Theme Builder)
+     Widgets: Site Logo | Nav Menu | Button
+     ════════════════════════════════════════════════════════════ -->
+<header class="mf-header">
+  <div class="max-w-7xl mx-auto px-5 flex items-center justify-between h-20">
+    <!-- Site Logo widget -->
+    <a href="index.html" class="flex items-center gap-3">
+      <img class="w-[70px] h-auto" src="./assets/images/logo.png" alt="Moonlit Foundation logo">
+      <span class="leading-tight">
+        <span class="block font-bold text-[#0A1F44] text-lg tracking-wide">MOONLIT</span>
+        <span class="block text-[10px] tracking-[.35em] text-[#4B5563]">FOUNDATION</span>
+      </span>
+    </a>
+    <!-- Nav Menu widget -->
+    <nav class="hidden lg:flex items-center gap-8" aria-label="Main">
+      <a class="mf-nav-link is-active" href="index.html">Home</a>
+      <a class="mf-nav-link" href="about.html">About Us</a>
+      <a class="mf-nav-link" href="programs.html">Programs</a>
+      <a class="mf-nav-link" href="events.html">Events</a>
+      <a class="mf-nav-link" href="gallery.html">Gallery</a>
+      <a class="mf-nav-link" href="get-involved.html">Get Involved</a>
+      <a class="mf-nav-link" href="contact.html">Contact</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <!-- Button widget -->
+      <a href="contact.html" class="mf-btn mf-btn-donate hidden sm:inline-flex"><i class="fa-solid fa-heart"></i> Donate Now</a>
+      <button id="mfDrawerOpen" class="lg:hidden text-2xl text-[#14338C]" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile drawer (HTML widget in Elementor, or Elementor Pro off-canvas) -->
+<div id="mfDrawer" class="mf-drawer fixed top-0 right-0 h-full w-72 bg-white z-[70] shadow-2xl p-8 flex flex-col gap-5 lg:hidden">
+  <button id="mfDrawerClose" class="self-end text-2xl text-[#14338C]" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+  <a class="mf-nav-link is-active" href="index.html">Home</a>
+  <a class="mf-nav-link" href="about.html">About Us</a>
+  <a class="mf-nav-link" href="programs.html">Programs</a>
+  <a class="mf-nav-link" href="events.html">Events</a>
+  <a class="mf-nav-link" href="gallery.html">Gallery</a>
+  <a class="mf-nav-link" href="get-involved.html">Get Involved</a>
+  <a class="mf-nav-link" href="contact.html">Contact</a>
+  <a href="contact.html" class="mf-btn mf-btn-donate mt-4"><i class="fa-solid fa-heart"></i> Donate Now</a>
+</div>
+
+<main>
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 1 — HERO
+     Elementor: Container (2 columns, 55/45)
+     Col 1: Heading + Text Editor + Buttons + Image (avatars via HTML)
+     Col 2: Image widget (CSS class mf-blob) + HTML widget (badge)
+     ════════════════════════════════════════════════════════════ -->
+<section class="overflow-hidden">
+  <div class="max-w-7xl mx-auto px-5 grid lg:grid-cols-[55%_45%] items-center gap-10 py-14 lg:py-20">
+
+    <div class="mf-fade">
+      <!-- Text Editor widget -->
+      <p class="mf-eyebrow mb-4">Together, We Create Hope</p>
+      <!-- Heading widget (H1) -->
+      <h1 class="text-4xl md:text-5xl xl:text-[3.4rem] relative">
+        Lighting Lives.<br>Building Better<br><span class="mf-hl">Tomorrows.</span>
+        <i class="fa-solid fa-star-of-life mf-spark absolute -right-2 top-2 text-xl hidden md:inline"></i>
+      </h1>
+      <div class="mf-divider my-6"></div>
+      <!-- Text Editor widget -->
+      <p class="max-w-md text-[15px] leading-relaxed">Moonlit Foundation is a youth-led nonprofit organization committed to empowering communities through compassion, action, and sustainable change.</p>
+      <!-- Button widgets -->
+      <div class="flex flex-wrap gap-4 mt-8">
+        <a href="get-involved.html#volunteer" class="mf-btn mf-btn-primary">Join as a Volunteer <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="get-involved.html#blood" class="mf-btn mf-btn-red"><i class="fa-solid fa-droplet"></i> Request for Blood</a>
+      </div>
+      <!-- HTML widget: trust avatars -->
+      <div class="mt-9">
+        <p class="text-xs font-medium mb-3 text-[#111827]">Trusted by people across Kerala</p>
+        <div class="flex items-center gap-4">
+          <div class="flex">
+            <img class="mf-avatar" src="https://randomuser.me/api/portraits/men/32.jpg"  data-fb="https://placehold.co/88x88/14338C/fff?text=M" alt="Volunteer">
+            <img class="mf-avatar" src="https://randomuser.me/api/portraits/women/44.jpg" data-fb="https://placehold.co/88x88/F5B921/0A1F44?text=M" alt="Volunteer">
+            <img class="mf-avatar" src="https://randomuser.me/api/portraits/men/54.jpg"  data-fb="https://placehold.co/88x88/14338C/fff?text=M" alt="Volunteer">
+            <img class="mf-avatar" src="https://randomuser.me/api/portraits/women/68.jpg" data-fb="https://placehold.co/88x88/F5B921/0A1F44?text=M" alt="Volunteer">
+            <img class="mf-avatar" src="https://randomuser.me/api/portraits/men/76.jpg"  data-fb="https://placehold.co/88x88/14338C/fff?text=M" alt="Volunteer">
+          </div>
+          <span class="bg-[#F5B921] text-[#0A1F44] font-bold text-sm px-3 py-1.5 rounded-full">500+</span>
+          <span class="text-sm font-medium text-[#111827]">Volunteers</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative mf-fade">
+      <div class="mf-blob-frame">
+        <!-- Image widget, CSS class: mf-blob -->
+        <div class="mf-blob relative h-[320px] md:h-[430px]">
+          <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1000&q=80" data-fb="https://placehold.co/900x700/14338C/fff?text=Moonlit+Volunteers" alt="Moonlit Foundation volunteers standing together facing the hills">
+        </div>
+      </div>
+      <div class="mf-dots absolute -bottom-4 -left-4 hidden md:block" aria-hidden="true"></div>
+      <!-- HTML widget: circular badge -->
+      <div class="mf-badge-circle absolute -bottom-8 right-4">Be the<span class="mf-hl">Change</span><i class="fa-solid fa-heart text-[#14338C] mt-1"></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 2 — IMPACT STATS STRIP
+     Elementor: Container (bg gradient, radius 24, class mf-band)
+     Col 1: Heading + Text | Cols: Counter widgets (icon above)
+     ════════════════════════════════════════════════════════════ -->
+<section class="max-w-7xl mx-auto px-5 mt-8 mf-fade">
+  <div class="mf-band px-8 py-10 flex flex-col xl:flex-row gap-10 items-center">
+    <div class="min-w-[220px]">
+      <p class="text-xs tracking-widest uppercase text-[#c9d4ee] mb-2">Our Impact</p>
+      <h2 class="text-2xl leading-snug">Creating change<br>that <span class="mf-hl mf-stroke">matters</span></h2>
+      <p class="text-xs text-[#c9d4ee] mt-3">Real people. Real impact. <i class="fa-solid fa-arrow-turn-up mf-spark ml-1"></i></p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-y-8 flex-1 w-full">
+      <!-- Counter widget ×6 -->
+      <div class="text-center px-3 xl:border-l border-white/15"><i class="fa-solid fa-users mf-gold-icon"></i><p class="mf-stat-num mt-2" data-count="2500">0</p><p class="mf-stat-label">Volunteers<br>Engaged</p></div>
+      <div class="text-center px-3 xl:border-l border-white/15"><i class="fa-solid fa-droplet mf-gold-icon"></i><p class="mf-stat-num mt-2" data-count="1800">0</p><p class="mf-stat-label">Blood Donors<br>Registered</p></div>
+      <div class="text-center px-3 xl:border-l border-white/15"><i class="fa-solid fa-hand-holding-heart mf-gold-icon"></i><p class="mf-stat-num mt-2" data-count="3500">0</p><p class="mf-stat-label">Families<br>Supported</p></div>
+      <div class="text-center px-3 xl:border-l border-white/15"><i class="fa-solid fa-box-open mf-gold-icon"></i><p class="mf-stat-num mt-2" data-count="120">0</p><p class="mf-stat-label">Relief<br>Campaigns</p></div>
+      <div class="text-center px-3 xl:border-l border-white/15"><i class="fa-solid fa-leaf mf-gold-icon"></i><p class="mf-stat-num mt-2" data-count="5000">0</p><p class="mf-stat-label">Trees<br>Planted</p></div>
+      <div class="text-center px-3 xl:border-l border-white/15"><i class="fa-solid fa-location-dot mf-gold-icon"></i><p class="mf-stat-num mt-2" data-count="25">0</p><p class="mf-stat-label">Communities<br>Reached</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 3 — PROGRAMS ("WHAT WE DO")
+     Elementor: Container | Row 1: Heading + Text + Button
+     Row 2: 5 columns, each = Image widget + Heading + Text + Button
+     (or Image Box widget with class mf-card)
+     ════════════════════════════════════════════════════════════ -->
+<section class="max-w-7xl mx-auto px-5 py-16 lg:py-24">
+  <div class="grid lg:grid-cols-2 gap-8 items-end mb-12 mf-fade">
+    <div>
+      <p class="mf-eyebrow mb-3">What We Do</p>
+      <h2 class="text-3xl md:text-4xl">Programs that<br>create <span class="mf-hl mf-stroke">Impact</span></h2>
+    </div>
+    <div class="lg:text-right">
+      <p class="max-w-sm lg:ml-auto text-[15px] mb-5">From saving lives to empowering youth, our programs are designed to bring meaningful change to society.</p>
+      <a href="programs.html" class="mf-btn mf-btn-outline">Explore All Programs <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+    <!-- Program card ×5 (Image Box / custom) -->
+    <article class="mf-card p-3 mf-fade">
+      <div class="relative">
+        <img class="mf-card-img" src="https://images.unsplash.com/photo-1615461066159-fea0960485d5?w=600&q=80" data-fb="https://placehold.co/600x400/DC2626/fff?text=Blood+Donation" alt="Blood donation drive">
+        <span class="mf-icon-bubble bg-acc-red absolute top-3 left-3"><i class="fa-solid fa-droplet"></i></span>
+      </div>
+      <div class="p-3">
+        <h3 class="text-lg mb-2">Blood Donation</h3>
+        <p class="text-[13px] leading-relaxed mb-4">Organizing blood donation drives and saving lives across communities.</p>
+        <a href="programs.html#blood" class="mf-mini-arrow bg-acc-red" aria-label="Blood Donation program"><i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </article>
+
+    <article class="mf-card p-3 mf-fade">
+      <div class="relative">
+        <img class="mf-card-img" src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=600&q=80" data-fb="https://placehold.co/600x400/16A34A/fff?text=Community+Welfare" alt="Volunteers distributing food and clothes">
+        <span class="mf-icon-bubble bg-acc-green absolute top-3 left-3"><i class="fa-solid fa-people-group"></i></span>
+      </div>
+      <div class="p-3">
+        <h3 class="text-lg mb-2">Community Welfare</h3>
+        <p class="text-[13px] leading-relaxed mb-4">Cloth donations, food distribution and supporting those in need.</p>
+        <a href="programs.html#welfare" class="mf-mini-arrow bg-acc-green" aria-label="Community Welfare program"><i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </article>
+
+    <article class="mf-card p-3 mf-fade">
+      <div class="relative">
+        <img class="mf-card-img" src="https://images.unsplash.com/photo-1547683905-f686c993aae5?w=600&q=80" data-fb="https://placehold.co/600x400/2563EB/fff?text=Disaster+Relief" alt="Rescue boat during flood relief">
+        <span class="mf-icon-bubble bg-acc-blue absolute top-3 left-3"><i class="fa-solid fa-shield-halved"></i></span>
+      </div>
+      <div class="p-3">
+        <h3 class="text-lg mb-2">Disaster Relief</h3>
+        <p class="text-[13px] leading-relaxed mb-4">Immediate relief and rehabilitation support during emergencies.</p>
+        <a href="programs.html#relief" class="mf-mini-arrow bg-acc-blue" aria-label="Disaster Relief program"><i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </article>
+
+    <article class="mf-card p-3 mf-fade">
+      <div class="relative">
+        <img class="mf-card-img" src="https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?w=600&q=80" data-fb="https://placehold.co/600x400/F5B921/0A1F44?text=Environment" alt="Beach cleanup volunteers">
+        <span class="mf-icon-bubble bg-acc-yellow absolute top-3 left-3"><i class="fa-solid fa-leaf"></i></span>
+      </div>
+      <div class="p-3">
+        <h3 class="text-lg mb-2">Environment</h3>
+        <p class="text-[13px] leading-relaxed mb-4">Cleanliness drives, tree plantation and environmental awareness.</p>
+        <a href="programs.html#environment" class="mf-mini-arrow bg-acc-yellow" aria-label="Environment program"><i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </article>
+
+    <article class="mf-card p-3 mf-fade">
+      <div class="relative">
+        <img class="mf-card-img" src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=600&q=80" data-fb="https://placehold.co/600x400/7C3AED/fff?text=Youth+Development" alt="Youth leadership workshop">
+        <span class="mf-icon-bubble bg-acc-purple absolute top-3 left-3"><i class="fa-solid fa-graduation-cap"></i></span>
+      </div>
+      <div class="p-3">
+        <h3 class="text-lg mb-2">Youth Development</h3>
+        <p class="text-[13px] leading-relaxed mb-4">Empowering youth through leadership and skill development.</p>
+        <a href="programs.html#youth" class="mf-mini-arrow bg-acc-purple" aria-label="Youth Development program"><i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 4 — TESTIMONIALS ("STORIES OF CHANGE")
+     Elementor: Container (2 col 32/68)
+     Col 1: Heading + Text + Button | Col 2: Testimonial Carousel
+     (native widget) or 3 cards + HTML arrows as below
+     ════════════════════════════════════════════════════════════ -->
+<section class="max-w-7xl mx-auto px-5 pb-16 lg:pb-24">
+  <div class="grid lg:grid-cols-[32%_68%] gap-10 items-start">
+    <div class="mf-fade">
+      <p class="mf-eyebrow mb-3">Stories of Change</p>
+      <h2 class="text-3xl md:text-4xl">Real Stories.<br>Real <span class="mf-hl mf-stroke">Impact.</span></h2>
+      <p class="mt-4 text-[15px]">Every smile tells a story of hope and transformation.</p>
+      <a href="gallery.html" class="mf-btn mf-btn-outline mt-6">View More Stories <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <div class="mf-fade">
+      <div class="flex justify-end gap-3 mb-5">
+        <button id="mfTestiPrev" class="mf-car-arrow" aria-label="Previous story"><i class="fa-solid fa-chevron-left"></i></button>
+        <button id="mfTestiNext" class="mf-car-arrow" aria-label="Next story"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+      <div id="mfTestiTrack" class="flex gap-6 overflow-x-auto snap-x pb-2" style="scrollbar-width:none;">
+        <!-- Testimonial card ×3 -->
+        <article class="mf-card min-w-[260px] md:min-w-[280px] snap-start">
+          <img class="w-full h-44 object-cover" src="https://images.unsplash.com/photo-1595429035839-c99c298ffdde?w=600&q=80" data-fb="https://placehold.co/600x400/14338C/fff?text=Story" alt="Smiling boy in a red shirt">
+          <div class="p-5">
+            <i class="fa-solid fa-quote-left mf-quote-icon"></i>
+            <p class="text-[13.5px] mt-2 mb-3 leading-relaxed text-[#111827]">"Thanks to the blood donors, my son got a second chance at life."</p>
+            <p class="text-xs font-semibold text-[#4B5563]">— Ramesh, Father</p>
+          </div>
+        </article>
+        <article class="mf-card min-w-[260px] md:min-w-[280px] snap-start">
+          <img class="w-full h-44 object-cover" src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&q=80" data-fb="https://placehold.co/600x400/14338C/fff?text=Story" alt="Volunteer handing relief supplies to an elderly woman">
+          <div class="p-5">
+            <i class="fa-solid fa-quote-left mf-quote-icon"></i>
+            <p class="text-[13.5px] mt-2 mb-3 leading-relaxed text-[#111827]">"Moonlit Foundation supported us when we had lost everything."</p>
+            <p class="text-xs font-semibold text-[#4B5563]">— Anitha, Flood Survivor</p>
+          </div>
+        </article>
+        <article class="mf-card min-w-[260px] md:min-w-[280px] snap-start">
+          <img class="w-full h-44 object-cover" src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&q=80" data-fb="https://placehold.co/600x400/16A34A/fff?text=Story" alt="Hands planting a sapling in dark soil">
+          <div class="p-5">
+            <i class="fa-solid fa-quote-left mf-quote-icon"></i>
+            <p class="text-[13.5px] mt-2 mb-3 leading-relaxed text-[#111827]">"They didn't just plant trees, they planted hope for our future."</p>
+            <p class="text-xs font-semibold text-[#4B5563]">— Volunteer</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 5 — CTA BAND ("BE THE CHANGE")
+     Elementor: Container class mf-band | Col 1: Heading
+     Cols 2-4: Icon Box widgets
+     ════════════════════════════════════════════════════════════ -->
+<section class="max-w-7xl mx-auto px-5 pb-20 mf-fade">
+  <div class="mf-band px-8 py-12 grid lg:grid-cols-[34%_1fr] gap-10 items-center">
+    <div>
+      <h2 class="text-2xl md:text-3xl leading-snug">Be the <span class="mf-hl mf-stroke">Change.</span><br>Make an Impact. <i class="fa-solid fa-star-of-life mf-spark text-sm ml-1"></i></h2>
+    </div>
+    <div class="grid sm:grid-cols-3 gap-8">
+      <!-- Icon Box ×3 -->
+      <div class="sm:border-l border-white/15 sm:pl-6">
+        <i class="fa-solid fa-users mf-gold-icon"></i>
+        <h4 class="mt-3 mb-1 text-base">Become a Volunteer</h4>
+        <p class="text-xs text-[#c9d4ee] mb-3">Join our team and make a difference.</p>
+        <a href="get-involved.html#volunteer" class="text-[#F5B921] text-sm" aria-label="Become a volunteer"><i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="sm:border-l border-white/15 sm:pl-6">
+        <i class="fa-solid fa-droplet mf-gold-icon"></i>
+        <h4 class="mt-3 mb-1 text-base">Request Blood</h4>
+        <p class="text-xs text-[#c9d4ee] mb-3">Need blood support? We're here to help.</p>
+        <a href="get-involved.html#blood" class="text-[#F5B921] text-sm" aria-label="Request blood"><i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="sm:border-l border-white/15 sm:pl-6">
+        <i class="fa-solid fa-hand-holding-heart mf-gold-icon"></i>
+        <h4 class="mt-3 mb-1 text-base">Support Us Financially</h4>
+        <p class="text-xs text-[#c9d4ee] mb-3">Your donation helps us impact more lives.</p>
+        <a href="contact.html" class="text-[#F5B921] text-sm" aria-label="Support us"><i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER  →  Elementor: Footer template (Theme Builder)
+     Widgets: Site Logo + Text + Social Icons | Nav lists (Icon
+     List / Text Editor) | Icon List (contact) + Form (newsletter)
+     ════════════════════════════════════════════════════════════ -->
+<footer class="mf-footer pt-16">
+  <div class="max-w-7xl mx-auto px-5 grid gap-10 md:grid-cols-2 xl:grid-cols-[1.3fr_1fr_1fr_1fr_1.3fr] pb-12">
+    <div>
+      <a href="index.html" class="flex items-center gap-3 mb-5">
+        <span class="w-11 h-11 rounded-full border-2 border-white flex items-center justify-center"><i class="fa-solid fa-fire-flame-curved text-white text-lg"></i></span>
+        <span class="leading-tight"><span class="block font-bold text-white tracking-wide">MOONLIT</span><span class="block text-[9px] tracking-[.35em]">FOUNDATION</span></span>
+      </a>
+      <p class="text-sm leading-relaxed mb-6">Empowering communities and inspiring change through service, care and compassion.</p>
+      <div class="flex gap-3">
+        <a class="mf-social" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a class="mf-social" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a class="mf-social" href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a class="mf-social" href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div>
+      <h5>Quick Links</h5>
+      <ul class="space-y-2.5">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Get Involved</h5>
+      <ul class="space-y-2.5">
+        <li><a href="get-involved.html#volunteer">Become a Volunteer</a></li>
+        <li><a href="get-involved.html#blood">Request Blood</a></li>
+        <li><a href="get-involved.html#partner">Partner With Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Programs</h5>
+      <ul class="space-y-2.5">
+        <li><a href="programs.html#blood">Blood Donation</a></li>
+        <li><a href="programs.html#welfare">Community Welfare</a></li>
+        <li><a href="programs.html#relief">Disaster Relief</a></li>
+        <li><a href="programs.html#environment">Environment</a></li>
+        <li><a href="programs.html#youth">Youth Development</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Contact Us</h5>
+      <ul class="space-y-3 text-sm">
+        <li class="flex gap-3"><i class="fa-solid fa-location-dot text-[#F5B921] mt-1"></i> Kozhikode, Kerala, India</li>
+        <li class="flex gap-3"><i class="fa-solid fa-phone text-[#F5B921] mt-1"></i> <a href="tel:+919995123456">+91 9995 123 456</a></li>
+        <li class="flex gap-3"><i class="fa-solid fa-envelope text-[#F5B921] mt-1"></i> <a href="mailto:info@moonlitfoundation.org">info@moonlitfoundation.org</a></li>
+      </ul>
+      <h5 class="mt-6">Stay Updated</h5>
+      <form class="mf-form flex bg-white rounded-full p-1" data-api="/newsletter" data-success="Subscribed! Welcome to the Moonlit family.">
+        <label class="sr-only" for="nl-email">Email address</label>
+        <input id="nl-email" name="email" required type="email" placeholder="Enter your email" class="flex-1 min-w-0 px-4 text-sm text-[#111827] bg-transparent focus:outline-none">
+        <button class="w-10 h-10 rounded-full bg-[#F5B921] text-[#0A1F44]" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+      </form>
+    </div>
+  </div>
+  <div class="mf-footer-bottom py-4">
+    <div class="max-w-7xl mx-auto px-5 flex flex-col sm:flex-row justify-between gap-2">
+      <p>© 2025 Moonlit Foundation. All rights reserved.</p>
+      <p><a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms &amp; Conditions</a></p>
+    </div>
+  </div>
+</footer>
+
+<div id="mfToast" class="mf-toast" role="status"></div>
+<script src="assets/config.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="assets/scroll-fx.js"></script>
+<script src="assets/main.js"></script>
+</body>
+</html>

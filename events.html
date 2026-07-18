@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events — Moonlit Foundation</title>
+<meta name="description" content="Upcoming and past events by Moonlit Foundation — blood camps, cleanup drives and youth workshops across Kerala.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="shortcut icon" href="assets/images/favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- custom.css -> paste into WordPress Customizer -> Additional CSS -->
+<link rel="stylesheet" href="assets/custom.css">
+</head>
+<body>
+
+<!-- HEADER -> Elementor: Header template (Theme Builder). Widgets: Site Logo | Nav Menu | Button -->
+<header class="mf-header">
+  <div class="max-w-7xl mx-auto px-5 flex items-center justify-between h-20">
+    <a href="index.html" class="flex items-center gap-3">
+            <img class="w-[70px] h-auto" src="./assets/images/logo.png" alt="Moonlit Foundation logo">
+      <span class="leading-tight">
+        <span class="block font-bold text-[#0A1F44] text-lg tracking-wide">MOONLIT</span>
+        <span class="block text-[10px] tracking-[.35em] text-[#4B5563]">FOUNDATION</span>
+      </span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-8" aria-label="Main">
+      <a class="mf-nav-link" href="index.html">Home</a>
+      <a class="mf-nav-link" href="about.html">About Us</a>
+      <a class="mf-nav-link" href="programs.html">Programs</a>
+      <a class="mf-nav-link is-active" href="events.html">Events</a>
+      <a class="mf-nav-link" href="gallery.html">Gallery</a>
+      <a class="mf-nav-link" href="get-involved.html">Get Involved</a>
+      <a class="mf-nav-link" href="contact.html">Contact</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <a href="contact.html" class="mf-btn mf-btn-donate hidden sm:inline-flex"><i class="fa-solid fa-heart"></i> Donate Now</a>
+      <button id="mfDrawerOpen" class="lg:hidden text-2xl text-[#14338C]" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<div id="mfDrawer" class="mf-drawer fixed top-0 right-0 h-full w-72 bg-white z-[70] shadow-2xl p-8 flex flex-col gap-5 lg:hidden">
+  <button id="mfDrawerClose" class="self-end text-2xl text-[#14338C]" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+      <a class="mf-nav-link" href="index.html">Home</a>
+      <a class="mf-nav-link" href="about.html">About Us</a>
+      <a class="mf-nav-link" href="programs.html">Programs</a>
+      <a class="mf-nav-link is-active" href="events.html">Events</a>
+      <a class="mf-nav-link" href="gallery.html">Gallery</a>
+      <a class="mf-nav-link" href="get-involved.html">Get Involved</a>
+      <a class="mf-nav-link" href="contact.html">Contact</a>
+  <a href="contact.html" class="mf-btn mf-btn-donate mt-4"><i class="fa-solid fa-heart"></i> Donate Now</a>
+</div>
+
+<main>
+
+<!-- INNER PAGE HERO -> Elementor: Container class mf-page-hero. Widgets: Text Editor (breadcrumb) + Heading + Text -->
+<section class="mf-page-hero py-14 lg:py-20 relative overflow-hidden">
+  <div class="mf-dots absolute top-8 right-8 hidden lg:block" aria-hidden="true"></div>
+  <div class="max-w-7xl mx-auto px-5">
+    <p class="mf-crumb mb-4"><a href="index.html">Home</a> &nbsp;/&nbsp; Events</p>
+    <p class="mf-eyebrow mb-3">Our Events</p>
+    <h1 class="text-4xl md:text-5xl max-w-2xl">Moments that <span class="mf-hl mf-stroke">Matter</span></h1>
+    <div class="mf-divider my-6"></div>
+    <p class="max-w-xl text-[15px]">From blood camps to beach cleanups — here's where you'll find us next, and what we've been up to.</p>
+  </div>
+</section>
+
+<!-- SECTION: FILTER TABS -> HTML widget (pills) driving [data-cat] items below -->
+<section class="max-w-7xl mx-auto px-5 pt-14">
+  <div class="flex flex-wrap gap-3 mf-fade" data-filter-group data-target="#mfEvents">
+    <button class="mf-pill is-active" data-filter="all">All</button>
+    <button class="mf-pill" data-filter="upcoming">Upcoming</button>
+    <button class="mf-pill" data-filter="past">Past</button>
+  </div>
+</section>
+
+<div id="mfEvents">
+<!-- SECTION: UPCOMING EVENTS -> 3 horizontal cards. Elementor: inner Container per card (Image + Heading + Icon List + Text + Button) -->
+<section class="max-w-7xl mx-auto px-5 py-12">
+  <h2 class="text-2xl md:text-3xl mb-8 mf-fade">Upcoming <span class="mf-hl mf-stroke">Events</span></h2>
+
+  <!-- Server-rendered by assets/events.js on load. If the admin API is
+       unreachable, this stays as static sample content (see events.js). -->
+  <div id="mfUpcomingList" class="space-y-8">
+  <article class="mf-card grid md:grid-cols-[38%_1fr] mf-fade" data-cat="upcoming">
+    <div class="relative">
+      <img class="w-full h-56 md:h-full object-cover" src="https://images.unsplash.com/photo-1615461066159-fea0960485d5?w=800&q=80" data-fb="https://placehold.co/800x500/DC2626/fff?text=Blood+Camp" alt="Blood donation camp">
+      <span class="mf-date-badge"><span class="d">26</span><span class="m">Jul</span></span>
+    </div>
+    <div class="p-7">
+      <span class="mf-chip bg-acc-red mb-3 inline-block">Blood Donation</span>
+      <h3 class="text-xl mb-2">Mega Blood Donation Camp</h3>
+      <p class="text-[13px] flex flex-wrap gap-x-5 gap-y-1 mb-3">
+        <span><i class="fa-solid fa-location-dot text-[#F5B921] mr-1.5"></i>Govt. Medical College, Kozhikode</span>
+        <span><i class="fa-solid fa-clock text-[#F5B921] mr-1.5"></i>9:00 AM – 4:00 PM</span>
+      </p>
+      <p class="text-[14px] leading-relaxed mb-5">Our biggest camp of the year, targeting 300 donors in a single day. Walk-ins welcome; every donor receives a health check and a Moonlit donor card.</p>
+      <a href="get-involved.html#volunteer" class="mf-btn mf-btn-primary">Register Now <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </article>
+
+  <article class="mf-card grid md:grid-cols-[38%_1fr] mf-fade" data-cat="upcoming">
+    <div class="relative">
+      <img class="w-full h-56 md:h-full object-cover" src="https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?w=800&q=80" data-fb="https://placehold.co/800x500/F5B921/0A1F44?text=Coastal+Cleanup" alt="Beach cleanup volunteers">
+      <span class="mf-date-badge"><span class="d">09</span><span class="m">Aug</span></span>
+    </div>
+    <div class="p-7">
+      <span class="mf-chip bg-acc-yellow !text-[#0A1F44] mb-3 inline-block">Environment</span>
+      <h3 class="text-xl mb-2">Coastal Cleanup Drive</h3>
+      <p class="text-[13px] flex flex-wrap gap-x-5 gap-y-1 mb-3">
+        <span><i class="fa-solid fa-location-dot text-[#F5B921] mr-1.5"></i>Kappad Beach, Kozhikode</span>
+        <span><i class="fa-solid fa-clock text-[#F5B921] mr-1.5"></i>6:30 AM – 10:00 AM</span>
+      </p>
+      <p class="text-[14px] leading-relaxed mb-5">Join 150+ volunteers to clean the historic Kappad shoreline. Gloves, bags and breakfast provided — bring your energy and a water bottle.</p>
+      <a href="get-involved.html#volunteer" class="mf-btn mf-btn-primary">Register Now <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </article>
+
+  <article class="mf-card grid md:grid-cols-[38%_1fr] mf-fade" data-cat="upcoming">
+    <div class="relative">
+      <img class="w-full h-56 md:h-full object-cover" src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=800&q=80" data-fb="https://placehold.co/800x500/7C3AED/fff?text=Youth+Workshop" alt="Youth leadership workshop">
+      <span class="mf-date-badge"><span class="d">23</span><span class="m">Aug</span></span>
+    </div>
+    <div class="p-7">
+      <span class="mf-chip bg-acc-purple mb-3 inline-block">Youth Development</span>
+      <h3 class="text-xl mb-2">Youth Leadership Workshop</h3>
+      <p class="text-[13px] flex flex-wrap gap-x-5 gap-y-1 mb-3">
+        <span><i class="fa-solid fa-location-dot text-[#F5B921] mr-1.5"></i>Town Hall, Kozhikode</span>
+        <span><i class="fa-solid fa-clock text-[#F5B921] mr-1.5"></i>10:00 AM – 5:00 PM</span>
+      </p>
+      <p class="text-[14px] leading-relaxed mb-5">A full-day workshop on leadership, public speaking and community organizing for students aged 16–24. Limited to 80 seats — certificates provided.</p>
+      <a href="get-involved.html#volunteer" class="mf-btn mf-btn-primary">Register Now <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </article>
+  </div>
+</section>
+
+<!-- SECTION: PAST EVENTS GRID -> 6 Image Box widgets -->
+<section class="max-w-7xl mx-auto px-5 pb-16">
+  <h2 class="text-2xl md:text-3xl mb-8 mf-fade">Past <span class="mf-hl mf-stroke">Events</span></h2>
+  <!-- Server-rendered by assets/events.js on load; falls back to this
+       static sample content if the admin API is unreachable. -->
+  <div id="mfPastList" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <article class="mf-card p-3 mf-fade" data-cat="past">
+      <div class="relative"><img class="mf-card-img" src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=600&q=80" data-fb="https://placehold.co/600x400/16A34A/fff?text=Food+Drive" alt="Food kit distribution"><span class="mf-chip bg-acc-green absolute top-3 right-3">Completed</span></div>
+      <div class="p-3"><p class="text-xs text-[#14338C] font-semibold mb-1">June 2026</p><h4 class="mb-1">Monsoon Food Kit Drive</h4><p class="text-[13px]">620 grocery kits delivered to families across 4 panchayats before the rains.</p></div>
+    </article>
+    <article class="mf-card p-3 mf-fade" data-cat="past">
+      <div class="relative"><img class="mf-card-img" src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&q=80" data-fb="https://placehold.co/600x400/16A34A/fff?text=Tree+Drive" alt="Sapling planting"><span class="mf-chip bg-acc-green absolute top-3 right-3">Completed</span></div>
+      <div class="p-3"><p class="text-xs text-[#14338C] font-semibold mb-1">June 2026</p><h4 class="mb-1">World Environment Day Plantation</h4><p class="text-[13px]">800 saplings planted with 12 schools on a single morning.</p></div>
+    </article>
+    <article class="mf-card p-3 mf-fade" data-cat="past">
+      <div class="relative"><img class="mf-card-img" src="https://images.unsplash.com/photo-1615461066159-fea0960485d5?w=600&q=80" data-fb="https://placehold.co/600x400/DC2626/fff?text=Blood+Camp" alt="Campus blood camp"><span class="mf-chip bg-acc-green absolute top-3 right-3">Completed</span></div>
+      <div class="p-3"><p class="text-xs text-[#14338C] font-semibold mb-1">May 2026</p><h4 class="mb-1">Campus Blood Camp Series</h4><p class="text-[13px]">Five college camps in one month — 410 new donors registered.</p></div>
+    </article>
+    <article class="mf-card p-3 mf-fade" data-cat="past">
+      <div class="relative"><img class="mf-card-img" src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=600&q=80" data-fb="https://placehold.co/600x400/7C3AED/fff?text=Career+Camp" alt="Career guidance session"><span class="mf-chip bg-acc-green absolute top-3 right-3">Completed</span></div>
+      <div class="p-3"><p class="text-xs text-[#14338C] font-semibold mb-1">April 2026</p><h4 class="mb-1">Career Guidance Camp</h4><p class="text-[13px]">Mentorship day for 200 Plus-Two students with 15 industry volunteers.</p></div>
+    </article>
+    <article class="mf-card p-3 mf-fade" data-cat="past">
+      <div class="relative"><img class="mf-card-img" src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&q=80" data-fb="https://placehold.co/600x400/2563EB/fff?text=Relief+Drive" alt="Relief kit handover"><span class="mf-chip bg-acc-green absolute top-3 right-3">Completed</span></div>
+      <div class="p-3"><p class="text-xs text-[#14338C] font-semibold mb-1">March 2026</p><h4 class="mb-1">Summer Relief Kits</h4><p class="text-[13px]">Water and essentials for 300 families in drought-affected wards.</p></div>
+    </article>
+    <article class="mf-card p-3 mf-fade" data-cat="past">
+      <div class="relative"><img class="mf-card-img" src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80" data-fb="https://placehold.co/600x400/14338C/fff?text=Volunteer+Meet" alt="Volunteer annual meet"><span class="mf-chip bg-acc-green absolute top-3 right-3">Completed</span></div>
+      <div class="p-3"><p class="text-xs text-[#14338C] font-semibold mb-1">February 2026</p><h4 class="mb-1">Annual Volunteer Meet</h4><p class="text-[13px]">700 volunteers, one day of stories, awards and planning for the year ahead.</p></div>
+    </article>
+  </div>
+</section>
+</div>
+
+<!-- EVENT REGISTRATION MODAL — opened by assets/events.js for events loaded
+     from the admin API (real event id required, so it isn't wired to the
+     static fallback cards above). -->
+<div id="mfEventModal" class="mf-lightbox" aria-modal="true" role="dialog" aria-labelledby="mfEventModalTitle">
+  <div class="mf-form-card max-w-md w-full mx-4 relative">
+    <button id="mfEventModalClose" class="mf-car-arrow absolute top-4 right-4" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <h3 class="text-xl mb-1" id="mfEventModalTitle">Register</h3>
+    <p class="text-[13px] mb-5" id="mfEventModalSub"></p>
+    <form id="mfEventModalForm">
+      <div class="space-y-4">
+        <div><label class="mf-label" for="ev-name">Full Name *</label><input class="mf-input" id="ev-name" name="name" required placeholder="Your name"><p class="mf-error-msg">Please enter your name.</p></div>
+        <div><label class="mf-label" for="ev-email">Email *</label><input class="mf-input" id="ev-email" name="email" required type="email" placeholder="you@example.com"><p class="mf-error-msg">Please enter a valid email.</p></div>
+        <div><label class="mf-label" for="ev-phone">Phone *</label><input class="mf-input" id="ev-phone" name="phone" required type="tel" placeholder="+91 ..."><p class="mf-error-msg">Please enter your phone number.</p></div>
+      </div>
+      <button class="mf-btn mf-btn-primary mt-6 w-full justify-center">Confirm Registration <i class="fa-solid fa-arrow-right"></i></button>
+    </form>
+  </div>
+</div>
+
+<!-- EVENT FEEDBACK MODAL — opened from "Give Feedback" on past-event cards
+     (assets/events.js), same POST-to-API pattern as the registration modal. -->
+<div id="mfFeedbackModal" class="mf-lightbox" aria-modal="true" role="dialog" aria-labelledby="mfFeedbackModalTitle">
+  <div class="mf-form-card max-w-md w-full mx-4 relative">
+    <button id="mfFeedbackModalClose" class="mf-car-arrow absolute top-4 right-4" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <h3 class="text-xl mb-1" id="mfFeedbackModalTitle">Feedback</h3>
+    <p class="text-[13px] mb-5" id="mfFeedbackModalSub"></p>
+    <form id="mfFeedbackModalForm">
+      <div class="space-y-4">
+        <div>
+          <label class="mf-label">Your Rating *</label>
+          <div class="mf-star-input">
+            <input type="radio" id="fb-star-5" name="rating" value="5"><label for="fb-star-5" title="5 stars"><i class="fa-solid fa-star"></i></label>
+            <input type="radio" id="fb-star-4" name="rating" value="4"><label for="fb-star-4" title="4 stars"><i class="fa-solid fa-star"></i></label>
+            <input type="radio" id="fb-star-3" name="rating" value="3"><label for="fb-star-3" title="3 stars"><i class="fa-solid fa-star"></i></label>
+            <input type="radio" id="fb-star-2" name="rating" value="2"><label for="fb-star-2" title="2 stars"><i class="fa-solid fa-star"></i></label>
+            <input type="radio" id="fb-star-1" name="rating" value="1"><label for="fb-star-1" title="1 star"><i class="fa-solid fa-star"></i></label>
+          </div>
+          <p class="mf-error-msg" id="fb-rating-error">Please choose a rating.</p>
+        </div>
+        <div><label class="mf-label" for="fb-name">Full Name *</label><input class="mf-input" id="fb-name" name="name" required placeholder="Your name"><p class="mf-error-msg">Please enter your name.</p></div>
+        <div><label class="mf-label" for="fb-email">Email *</label><input class="mf-input" id="fb-email" name="email" required type="email" placeholder="you@example.com"><p class="mf-error-msg">Please enter a valid email.</p></div>
+        <div><label class="mf-label" for="fb-comment">Comments <span class="text-[#9CA3AF] font-normal">(optional)</span></label><textarea class="mf-input" id="fb-comment" name="comment" rows="3" placeholder="What stood out?"></textarea></div>
+      </div>
+      <button class="mf-btn mf-btn-primary mt-6 w-full justify-center">Submit Feedback <i class="fa-solid fa-arrow-right"></i></button>
+    </form>
+  </div>
+</div>
+
+<!-- SECTION: PARTNER CTA -> Container class mf-band -->
+<section class="max-w-7xl mx-auto px-5 pb-20 mf-fade">
+  <div class="mf-band px-8 py-12 flex flex-col md:flex-row items-center justify-between gap-8">
+    <h2 class="text-2xl md:text-3xl">Want to organize an event <span class="mf-hl mf-stroke">with us?</span></h2>
+    <a href="get-involved.html#partner" class="mf-btn mf-btn-donate">Partner With Us <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -> Elementor: Footer template (Theme Builder) -->
+<footer class="mf-footer pt-16">
+  <div class="max-w-7xl mx-auto px-5 grid gap-10 md:grid-cols-2 xl:grid-cols-[1.3fr_1fr_1fr_1fr_1.3fr] pb-12">
+    <div>
+      <a href="index.html" class="flex items-center gap-3 mb-5">
+        <span class="w-11 h-11 rounded-full border-2 border-white flex items-center justify-center"><i class="fa-solid fa-fire-flame-curved text-white text-lg"></i></span>
+        <span class="leading-tight"><span class="block font-bold text-white tracking-wide">MOONLIT</span><span class="block text-[9px] tracking-[.35em]">FOUNDATION</span></span>
+      </a>
+      <p class="text-sm leading-relaxed mb-6">Empowering communities and inspiring change through service, care and compassion.</p>
+      <div class="flex gap-3">
+        <a class="mf-social" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a class="mf-social" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a class="mf-social" href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a class="mf-social" href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div>
+      <h5>Quick Links</h5>
+      <ul class="space-y-2.5">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Get Involved</h5>
+      <ul class="space-y-2.5">
+        <li><a href="get-involved.html#volunteer">Become a Volunteer</a></li>
+        <li><a href="get-involved.html#blood">Request Blood</a></li>
+        <li><a href="get-involved.html#partner">Partner With Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Programs</h5>
+      <ul class="space-y-2.5">
+        <li><a href="programs.html#blood">Blood Donation</a></li>
+        <li><a href="programs.html#welfare">Community Welfare</a></li>
+        <li><a href="programs.html#relief">Disaster Relief</a></li>
+        <li><a href="programs.html#environment">Environment</a></li>
+        <li><a href="programs.html#youth">Youth Development</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Contact Us</h5>
+      <ul class="space-y-3 text-sm">
+        <li class="flex gap-3"><i class="fa-solid fa-location-dot text-[#F5B921] mt-1"></i> Kozhikode, Kerala, India</li>
+        <li class="flex gap-3"><i class="fa-solid fa-phone text-[#F5B921] mt-1"></i> <a href="tel:+919995123456">+91 9995 123 456</a></li>
+        <li class="flex gap-3"><i class="fa-solid fa-envelope text-[#F5B921] mt-1"></i> <a href="mailto:info@moonlitfoundation.org">info@moonlitfoundation.org</a></li>
+      </ul>
+      <h5 class="mt-6">Stay Updated</h5>
+      <form class="mf-form flex bg-white rounded-full p-1" data-api="/newsletter" data-success="Subscribed! Welcome to the Moonlit family.">
+        <label class="sr-only" for="nl-email">Email address</label>
+        <input id="nl-email" name="email" required type="email" placeholder="Enter your email" class="flex-1 min-w-0 px-4 text-sm text-[#111827] bg-transparent focus:outline-none">
+        <button class="w-10 h-10 rounded-full bg-[#F5B921] text-[#0A1F44]" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+      </form>
+    </div>
+  </div>
+  <div class="mf-footer-bottom py-4">
+    <div class="max-w-7xl mx-auto px-5 flex flex-col sm:flex-row justify-between gap-2">
+      <p>&copy; 2025 Moonlit Foundation. All rights reserved.</p>
+      <p><a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms &amp; Conditions</a></p>
+    </div>
+  </div>
+</footer>
+
+<div id="mfToast" class="mf-toast" role="status"></div>
+<script src="assets/config.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="assets/scroll-fx.js"></script>
+<script src="assets/main.js"></script>
+<script src="assets/events.js"></script>
+</body>
+</html>

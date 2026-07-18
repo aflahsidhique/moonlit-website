@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — Moonlit Foundation</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="shortcut icon" href="assets/images/favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="/assets/custom.css">
+<link rel="stylesheet" href="/admin/assets/admin.css">
+</head>
+<body>
+
+<div class="mf-admin-mobile-topbar">
+  <button id="mfAdminMenuBtn" class="mf-admin-menu-btn" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+  <span class="leading-tight">
+    <span class="block font-bold text-white tracking-wide text-sm">MOONLIT</span>
+    <span class="block text-[9px] tracking-[.3em] text-[#B9C6E2]">ADMIN PANEL</span>
+  </span>
+  <span class="w-8"></span>
+</div>
+<div id="mfAdminSidebarBackdrop" class="mf-drawer-backdrop"></div>
+
+<div class="mf-admin-shell">
+  <aside class="mf-admin-sidebar" id="mfAdminSidebar">
+    <div class="mf-admin-brand">
+      <span class="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center flex-shrink-0">
+        <i class="fa-solid fa-fire-flame-curved text-white"></i>
+      </span>
+      <span class="leading-tight">
+        <span class="block font-bold text-white tracking-wide text-sm">MOONLIT</span>
+        <span class="block text-[9px] tracking-[.3em] text-[#B9C6E2]">ADMIN PANEL</span>
+      </span>
+      <button id="mfAdminSidebarClose" class="mf-admin-sidebar-close" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <nav class="mf-admin-nav" id="mfAdminNav">
+      <div class="mf-admin-nav-link is-active" data-section="overview"><i class="fa-solid fa-gauge-high"></i> Overview</div>
+      <div class="mf-admin-nav-link" data-section="volunteers"><i class="fa-solid fa-users"></i> Volunteers <span class="mf-admin-count" data-count-for="volunteers" style="display:none">0</span></div>
+      <div class="mf-admin-nav-link" data-section="blood"><i class="fa-solid fa-droplet"></i> Blood Requests <span class="mf-admin-count" data-count-for="blood" style="display:none">0</span></div>
+      <div class="mf-admin-nav-link" data-section="partners"><i class="fa-solid fa-handshake"></i> Partners <span class="mf-admin-count" data-count-for="partners" style="display:none">0</span></div>
+      <div class="mf-admin-nav-link" data-section="messages"><i class="fa-solid fa-envelope"></i> Messages <span class="mf-admin-count" data-count-for="messages" style="display:none">0</span></div>
+      <div class="mf-admin-nav-link" data-section="newsletter"><i class="fa-solid fa-paper-plane"></i> Newsletter</div>
+      <div class="mf-admin-nav-link" data-section="events"><i class="fa-solid fa-calendar-days"></i> Events</div>
+      <div class="mf-admin-nav-link" data-section="registrations"><i class="fa-solid fa-ticket"></i> Event Registrations</div>
+      <div class="mf-admin-nav-link" data-section="checkin"><i class="fa-solid fa-qrcode"></i> Check-in Scanner</div>
+      <div class="mf-admin-nav-link" data-section="feedback"><i class="fa-solid fa-star"></i> Event Feedback</div>
+      <div class="mf-admin-nav-link" data-section="notifications"><i class="fa-solid fa-bullhorn"></i> Notifications</div>
+    </nav>
+    <div class="mf-admin-sidebar-footer">
+      <p class="text-white" id="mfAdminName">—</p>
+      <button id="mfAdminLogout" class="text-[#F5B921] mt-1" style="text-decoration:underline">Log out</button>
+    </div>
+  </aside>
+
+  <main class="mf-admin-main">
+    <div class="mf-admin-topbar">
+      <div>
+        <p class="mf-admin-title" id="mfSectionTitle">Overview</p>
+        <p class="mf-admin-subtitle" id="mfSectionSubtitle">A snapshot of everything coming through the site.</p>
+      </div>
+      <button id="mfNewEventBtn" class="mf-btn mf-btn-primary" style="display:none"><i class="fa-solid fa-plus"></i> New Event</button>
+      <button id="mfNewNotifBtn" class="mf-btn mf-btn-primary" style="display:none"><i class="fa-solid fa-plus"></i> New Notification</button>
+    </div>
+    <div id="mfAdminContent"><p class="mf-admin-empty">Loading…</p></div>
+  </main>
+</div>
+
+<!-- Event create/edit modal -->
+<div id="mfEventFormBackdrop" class="mf-admin-modal-backdrop">
+  <div class="mf-admin-modal">
+    <div class="flex items-center justify-between mb-5">
+      <h3 class="text-lg" id="mfEventFormTitle">New Event</h3>
+      <button id="mfEventFormClose" class="mf-car-arrow" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <form id="mfEventForm">
+      <input type="hidden" id="ef-id">
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="sm:col-span-2"><label class="mf-label" for="ef-title">Title *</label><input class="mf-input" id="ef-title" required placeholder="Mega Blood Donation Camp"></div>
+        <div><label class="mf-label" for="ef-category">Category *</label>
+          <select class="mf-input" id="ef-category" required>
+            <option>Blood Donation</option><option>Community Welfare</option><option>Disaster Relief</option><option>Environment</option><option>Youth Development</option>
+          </select>
+        </div>
+        <div><label class="mf-label" for="ef-status">Status</label>
+          <select class="mf-input" id="ef-status"><option value="draft">Draft</option><option value="published">Published</option></select>
+        </div>
+        <div class="sm:col-span-2"><label class="mf-label" for="ef-description">Description *</label><textarea class="mf-input" id="ef-description" rows="3" required placeholder="What is this event about?"></textarea></div>
+        <div class="sm:col-span-2"><label class="mf-label" for="ef-location">Location *</label><input class="mf-input" id="ef-location" required placeholder="Govt. Medical College, Kozhikode"></div>
+        <div><label class="mf-label" for="ef-date">Date *</label><input class="mf-input" id="ef-date" type="date" required></div>
+        <div><label class="mf-label" for="ef-capacity">Capacity</label><input class="mf-input" id="ef-capacity" type="number" min="1" placeholder="Optional"></div>
+        <div><label class="mf-label" for="ef-start">Start Time *</label><input class="mf-input" id="ef-start" required placeholder="9:00 AM"></div>
+        <div><label class="mf-label" for="ef-end">End Time *</label><input class="mf-input" id="ef-end" required placeholder="4:00 PM"></div>
+        <div><label class="mf-label" for="ef-duration">Hours Credited <span class="text-[#9CA3AF] font-normal">(for attendance)</span></label><input class="mf-input" id="ef-duration" type="number" min="0" step="0.5" placeholder="e.g. 4"></div>
+        <div><label class="mf-label" for="ef-image">Image URL</label><input class="mf-input" id="ef-image" type="url" placeholder="Optional — https://..."></div>
+        <div class="sm:col-span-2"><label class="mf-label" for="ef-album">Photo Album Link <span class="text-[#9CA3AF] font-normal">(optional — e.g. a Google Drive folder)</span></label><input class="mf-input" id="ef-album" type="url" placeholder="https://drive.google.com/drive/folders/..."></div>
+      </div>
+      <p id="mfEventFormError" class="mf-error-msg mt-3" style="display:none"></p>
+      <div class="flex gap-3 mt-6">
+        <button type="submit" class="mf-btn mf-btn-primary flex-1 justify-center">Save Event</button>
+        <button type="button" id="mfEventFormCancel" class="mf-btn mf-btn-outline">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Volunteer detail modal -->
+<div id="mfVolunteerDetailBackdrop" class="mf-admin-modal-backdrop">
+  <div class="mf-admin-modal" style="max-width:680px">
+    <div class="flex items-center justify-between mb-5">
+      <h3 class="text-lg">Volunteer Profile</h3>
+      <button id="mfVolunteerDetailClose" class="mf-car-arrow" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div id="mfVolunteerDetailBody"></div>
+  </div>
+</div>
+
+<!-- Blood request detail modal -->
+<div id="mfBloodDetailBackdrop" class="mf-admin-modal-backdrop">
+  <div class="mf-admin-modal" style="max-width:680px">
+    <div class="flex items-center justify-between mb-5">
+      <h3 class="text-lg">Blood Request</h3>
+      <button id="mfBloodDetailClose" class="mf-car-arrow" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div id="mfBloodDetailBody"></div>
+  </div>
+</div>
+
+<!-- Notification compose modal -->
+<div id="mfNotifFormBackdrop" class="mf-admin-modal-backdrop">
+  <div class="mf-admin-modal">
+    <div class="flex items-center justify-between mb-5">
+      <h3 class="text-lg">New Notification</h3>
+      <button id="mfNotifFormClose" class="mf-car-arrow" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <form id="mfNotifForm">
+      <div class="grid gap-4">
+        <div><label class="mf-label" for="nf-audience">Send To</label>
+          <select class="mf-input" id="nf-audience">
+            <option value="all">All volunteers (broadcast)</option>
+            <option value="volunteer">One volunteer (by Volunteer ID)</option>
+          </select>
+        </div>
+        <div id="nf-vid-wrap" style="display:none"><label class="mf-label" for="nf-vid">Volunteer ID</label><input class="mf-input" id="nf-vid" placeholder="MLF202500001"></div>
+        <div><label class="mf-label" for="nf-title">Title *</label><input class="mf-input" id="nf-title" required placeholder="Monthly Meetup"></div>
+        <div><label class="mf-label" for="nf-message">Message *</label><textarea class="mf-input" id="nf-message" rows="3" required placeholder="Join us this Saturday at 10 AM."></textarea></div>
+      </div>
+      <p id="mfNotifFormError" class="mf-error-msg mt-3" style="display:none"></p>
+      <div class="flex gap-3 mt-6">
+        <button type="submit" class="mf-btn mf-btn-primary flex-1 justify-center">Send</button>
+        <button type="button" id="mfNotifFormCancel" class="mf-btn mf-btn-outline">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="mfToast" class="mf-toast" role="status"></div>
+<script src="/assets/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+<script src="/admin/assets/admin.js"></script>
+</body>
+</html>

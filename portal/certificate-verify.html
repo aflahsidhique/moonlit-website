@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verify Certificate — Moonlit Foundation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="/assets/custom.css">
+<link rel="stylesheet" href="/portal/assets/portal.css">
+</head>
+<body class="min-h-screen flex items-center justify-center px-4" style="background:linear-gradient(115deg,var(--mf-navy) 0%,var(--mf-navy-2) 55%,#183a7e 100%)">
+
+  <div class="mf-form-card w-full max-w-sm text-center" id="mfVerifyBody">
+    <p class="text-[14px] text-[#4B5563]">Checking…</p>
+  </div>
+
+  <script src="/assets/config.js"></script>
+  <script>
+    (function () {
+      var API = window.MF_API_BASE || "http://localhost:4000/api";
+      var body = document.getElementById("mfVerifyBody");
+      function esc(str) {
+        return String(str == null ? "" : str).replace(/[&<>"']/g, function (c) {
+          return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+        });
+      }
+      function fmtDate(iso) {
+        return new Date(iso).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
+      }
+      var id = new URLSearchParams(window.location.search).get("id");
+      if (!id) {
+        body.innerHTML = '<p class="text-[14px] text-[#DC2626]">No certificate ID given.</p>';
+        return;
+      }
+      fetch(API + "/attendance/verify/" + encodeURIComponent(id))
+        .then(function (res) {
+          return res.json().catch(function () { return {}; }).then(function (b) {
+            if (!res.ok) throw new Error(b.error || "Not found.");
+            return b.certificate;
+          });
+        })
+        .then(function (c) {
+          body.innerHTML =
+            '<div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style="background:#D1FAE5"><i class="fa-solid fa-check text-2xl" style="color:#065F46"></i></div>' +
+            '<p class="text-lg font-bold mb-1">Verified Certificate</p>' +
+            '<p class="text-xl font-bold mt-3">' + esc(c.volunteerName) + "</p>" +
+            '<p class="text-sm text-[#14338C] font-semibold mt-1">' + esc(c.volunteerId) + "</p>" +
+            '<p class="text-[14px] mt-4">volunteered at</p>' +
+            '<p class="text-lg font-bold mt-1">' + esc(c.eventTitle) + "</p>" +
+            '<p class="text-sm text-[#4B5563] mt-1">' + fmtDate(c.eventDate) + " · " + esc(c.category) + "</p>" +
+            '<p class="text-[13px] mt-3">' + c.hoursCredited + " hour(s) of service credited</p>" +
+            '<p class="text-[12px] text-[#9CA3AF] mt-5">Issued ' + fmtDate(c.issuedAt) + " by Moonlit Foundation.</p>";
+        })
+        .catch(function (err) {
+          body.innerHTML =
+            '<div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style="background:#FEE2E2"><i class="fa-solid fa-xmark text-2xl" style="color:#991B1B"></i></div>' +
+            '<p class="text-lg font-bold mb-1">Not Verified</p>' +
+            '<p class="text-[13px] text-[#4B5563]">' + esc(err.message) + "</p>";
+        });
+    })();
+  </script>
+</body>
+</html>

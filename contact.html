@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — Moonlit Foundation</title>
+<meta name="description" content="Get in touch with Moonlit Foundation, Kozhikode, Kerala — call, email or send us a message.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="shortcut icon" href="assets/images/favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- custom.css -> paste into WordPress Customizer -> Additional CSS -->
+<link rel="stylesheet" href="assets/custom.css">
+</head>
+<body>
+
+<!-- HEADER -> Elementor: Header template (Theme Builder). Widgets: Site Logo | Nav Menu | Button -->
+<header class="mf-header">
+  <div class="max-w-7xl mx-auto px-5 flex items-center justify-between h-20">
+    <a href="index.html" class="flex items-center gap-3">
+            <img class="w-[70px] h-auto" src="./assets/images/logo.png" alt="Moonlit Foundation logo">
+      <span class="leading-tight">
+        <span class="block font-bold text-[#0A1F44] text-lg tracking-wide">MOONLIT</span>
+        <span class="block text-[10px] tracking-[.35em] text-[#4B5563]">FOUNDATION</span>
+      </span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-8" aria-label="Main">
+      <a class="mf-nav-link" href="index.html">Home</a>
+      <a class="mf-nav-link" href="about.html">About Us</a>
+      <a class="mf-nav-link" href="programs.html">Programs</a>
+      <a class="mf-nav-link" href="events.html">Events</a>
+      <a class="mf-nav-link" href="gallery.html">Gallery</a>
+      <a class="mf-nav-link" href="get-involved.html">Get Involved</a>
+      <a class="mf-nav-link is-active" href="contact.html">Contact</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <a href="contact.html" class="mf-btn mf-btn-donate hidden sm:inline-flex"><i class="fa-solid fa-heart"></i> Donate Now</a>
+      <button id="mfDrawerOpen" class="lg:hidden text-2xl text-[#14338C]" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<div id="mfDrawer" class="mf-drawer fixed top-0 right-0 h-full w-72 bg-white z-[70] shadow-2xl p-8 flex flex-col gap-5 lg:hidden">
+  <button id="mfDrawerClose" class="self-end text-2xl text-[#14338C]" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+      <a class="mf-nav-link" href="index.html">Home</a>
+      <a class="mf-nav-link" href="about.html">About Us</a>
+      <a class="mf-nav-link" href="programs.html">Programs</a>
+      <a class="mf-nav-link" href="events.html">Events</a>
+      <a class="mf-nav-link" href="gallery.html">Gallery</a>
+      <a class="mf-nav-link" href="get-involved.html">Get Involved</a>
+      <a class="mf-nav-link is-active" href="contact.html">Contact</a>
+  <a href="contact.html" class="mf-btn mf-btn-donate mt-4"><i class="fa-solid fa-heart"></i> Donate Now</a>
+</div>
+
+<main>
+
+<!-- INNER PAGE HERO -> Elementor: Container class mf-page-hero. Widgets: Text Editor (breadcrumb) + Heading + Text -->
+<section class="mf-page-hero py-14 lg:py-20 relative overflow-hidden">
+  <div class="mf-dots absolute top-8 right-8 hidden lg:block" aria-hidden="true"></div>
+  <div class="max-w-7xl mx-auto px-5">
+    <p class="mf-crumb mb-4"><a href="index.html">Home</a> &nbsp;/&nbsp; Contact Us</p>
+    <p class="mf-eyebrow mb-3">Contact Us</p>
+    <h1 class="text-4xl md:text-5xl max-w-2xl">Let's <span class="mf-hl mf-stroke">Connect</span></h1>
+    <div class="mf-divider my-6"></div>
+    <p class="max-w-xl text-[15px]">Questions, ideas, requests — we read everything and reply fast. Reach us any way that suits you.</p>
+  </div>
+</section>
+
+<!-- SECTION: CONTACT INFO + FORM -> Elementor Container (2 col 42/58). Col 1: Icon List cards + Social Icons. Col 2: Form widget -->
+<section class="max-w-7xl mx-auto px-5 py-16 grid lg:grid-cols-[42%_1fr] gap-12 items-start">
+  <div class="space-y-5 mf-fade">
+    <!-- Icon Box ×4 -->
+    <div class="mf-card p-6 flex gap-5 items-start">
+      <span class="mf-icon-bubble bg-[#14338C]"><i class="fa-solid fa-location-dot"></i></span>
+      <div><h4 class="mb-1">Visit Us</h4><p class="text-[14px]">Moonlit Foundation, Kozhikode,<br>Kerala, India</p></div>
+    </div>
+    <div class="mf-card p-6 flex gap-5 items-start">
+      <span class="mf-icon-bubble bg-acc-yellow !text-[#0A1F44]"><i class="fa-solid fa-phone"></i></span>
+      <div><h4 class="mb-1">Call Us</h4><p class="text-[14px]"><a class="text-[#14338C] font-semibold" href="tel:+919995123456">+91 9995 123 456</a><br>Emergency blood line: 24/7</p></div>
+    </div>
+    <div class="mf-card p-6 flex gap-5 items-start">
+      <span class="mf-icon-bubble bg-[#14338C]"><i class="fa-solid fa-envelope"></i></span>
+      <div><h4 class="mb-1">Email Us</h4><p class="text-[14px]"><a class="text-[#14338C] font-semibold" href="mailto:info@moonlitfoundation.org">info@moonlitfoundation.org</a><br>We reply within 2 working days</p></div>
+    </div>
+    <div class="mf-card p-6 flex gap-5 items-start">
+      <span class="mf-icon-bubble bg-acc-yellow !text-[#0A1F44]"><i class="fa-solid fa-clock"></i></span>
+      <div><h4 class="mb-1">Office Hours</h4><p class="text-[14px]">Mon – Sat, 9:30 AM – 6:00 PM<br>Volunteers on call around the clock</p></div>
+    </div>
+    <!-- Social Icons widget -->
+    <div class="flex gap-3 pt-2">
+      <a class="mf-social !border-[#14338C]/30 !text-[#14338C]" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a class="mf-social !border-[#14338C]/30 !text-[#14338C]" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a class="mf-social !border-[#14338C]/30 !text-[#14338C]" href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      <a class="mf-social !border-[#14338C]/30 !text-[#14338C]" href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+  </div>
+
+  <!-- Elementor: Form widget, CSS class mf-form-card -->
+  <form class="mf-form mf-form-card mf-fade" data-api="/contact" data-success="Message sent! We'll get back to you within 2 working days.">
+    <h3 class="text-xl mb-6">Send us a message</h3>
+    <div class="grid sm:grid-cols-2 gap-5">
+      <div><label class="mf-label" for="c-name">Name *</label><input class="mf-input" id="c-name" name="name" required placeholder="Your name"><p class="mf-error-msg">Please enter your name.</p></div>
+      <div><label class="mf-label" for="c-phone">Phone</label><input class="mf-input" id="c-phone" name="phone" type="tel" placeholder="+91 ..."></div>
+      <div class="sm:col-span-2"><label class="mf-label" for="c-email">Email *</label><input class="mf-input" id="c-email" name="email" required type="email" placeholder="you@example.com"><p class="mf-error-msg">Please enter a valid email.</p></div>
+      <div class="sm:col-span-2"><label class="mf-label" for="c-subject">Subject *</label>
+        <select class="mf-input" id="c-subject" name="subject" required>
+          <option value="">Choose a topic</option>
+          <option>Volunteering</option><option>Blood request</option><option>Partnership / CSR</option><option>Media inquiry</option><option>Something else</option>
+        </select><p class="mf-error-msg">Please choose a subject.</p>
+      </div>
+      <div class="sm:col-span-2"><label class="mf-label" for="c-msg">Message *</label><textarea class="mf-input" id="c-msg" name="message" rows="5" required placeholder="How can we help?"></textarea><p class="mf-error-msg">Please write a message.</p></div>
+    </div>
+    <button class="mf-btn mf-btn-primary mt-6 w-full justify-center">Send Message <i class="fa-solid fa-arrow-right"></i></button>
+  </form>
+</section>
+
+<!-- SECTION: MAP -> Elementor Google Maps widget (address: Kozhikode, Kerala) -->
+<section class="max-w-7xl mx-auto px-5 pb-20 mf-fade">
+  <div class="rounded-3xl overflow-hidden" style="box-shadow:var(--mf-shadow)">
+    <iframe title="Moonlit Foundation location — Kozhikode, Kerala"
+      src="https://maps.google.com/maps?q=Kozhikode,Kerala,India&z=12&output=embed"
+      width="100%" height="420" style="border:0;display:block" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -> Elementor: Footer template (Theme Builder) -->
+<footer class="mf-footer pt-16">
+  <div class="max-w-7xl mx-auto px-5 grid gap-10 md:grid-cols-2 xl:grid-cols-[1.3fr_1fr_1fr_1fr_1.3fr] pb-12">
+    <div>
+      <a href="index.html" class="flex items-center gap-3 mb-5">
+        <span class="w-11 h-11 rounded-full border-2 border-white flex items-center justify-center"><i class="fa-solid fa-fire-flame-curved text-white text-lg"></i></span>
+        <span class="leading-tight"><span class="block font-bold text-white tracking-wide">MOONLIT</span><span class="block text-[9px] tracking-[.35em]">FOUNDATION</span></span>
+      </a>
+      <p class="text-sm leading-relaxed mb-6">Empowering communities and inspiring change through service, care and compassion.</p>
+      <div class="flex gap-3">
+        <a class="mf-social" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a class="mf-social" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a class="mf-social" href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a class="mf-social" href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div>
+      <h5>Quick Links</h5>
+      <ul class="space-y-2.5">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Get Involved</h5>
+      <ul class="space-y-2.5">
+        <li><a href="get-involved.html#volunteer">Become a Volunteer</a></li>
+        <li><a href="get-involved.html#blood">Request Blood</a></li>
+        <li><a href="get-involved.html#partner">Partner With Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Programs</h5>
+      <ul class="space-y-2.5">
+        <li><a href="programs.html#blood">Blood Donation</a></li>
+        <li><a href="programs.html#welfare">Community Welfare</a></li>
+        <li><a href="programs.html#relief">Disaster Relief</a></li>
+        <li><a href="programs.html#environment">Environment</a></li>
+        <li><a href="programs.html#youth">Youth Development</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Contact Us</h5>
+      <ul class="space-y-3 text-sm">
+        <li class="flex gap-3"><i class="fa-solid fa-location-dot text-[#F5B921] mt-1"></i> Kozhikode, Kerala, India</li>
+        <li class="flex gap-3"><i class="fa-solid fa-phone text-[#F5B921] mt-1"></i> <a href="tel:+919995123456">+91 9995 123 456</a></li>
+        <li class="flex gap-3"><i class="fa-solid fa-envelope text-[#F5B921] mt-1"></i> <a href="mailto:info@moonlitfoundation.org">info@moonlitfoundation.org</a></li>
+      </ul>
+      <h5 class="mt-6">Stay Updated</h5>
+      <form class="mf-form flex bg-white rounded-full p-1" data-api="/newsletter" data-success="Subscribed! Welcome to the Moonlit family.">
+        <label class="sr-only" for="nl-email">Email address</label>
+        <input id="nl-email" name="email" required type="email" placeholder="Enter your email" class="flex-1 min-w-0 px-4 text-sm text-[#111827] bg-transparent focus:outline-none">
+        <button class="w-10 h-10 rounded-full bg-[#F5B921] text-[#0A1F44]" aria-label="Subscribe"><i class="fa-solid fa-arrow-right"></i></button>
+      </form>
+    </div>
+  </div>
+  <div class="mf-footer-bottom py-4">
+    <div class="max-w-7xl mx-auto px-5 flex flex-col sm:flex-row justify-between gap-2">
+      <p>&copy; 2025 Moonlit Foundation. All rights reserved.</p>
+      <p><a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms &amp; Conditions</a></p>
+    </div>
+  </div>
+</footer>
+
+<div id="mfToast" class="mf-toast" role="status"></div>
+<script src="assets/config.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="assets/scroll-fx.js"></script>
+<script src="assets/main.js"></script>
+</body>
+</html>
