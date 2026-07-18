@@ -1,7 +1,7 @@
 # Moonlit Foundation — Admin API
 
-Express + Prisma (SQLite) backend for the admin panel at `/admin` and the
-volunteer portal at `/portal`. Handles volunteer registrations, blood
+Express + Prisma (PostgreSQL) backend for the admin panel at `/admin` and
+the volunteer portal at `/portal`. Handles volunteer registrations, blood
 requests, partner inquiries, contact messages, newsletter signups, and
 event creation/registration — everything the public site's forms submit
 to, and everything the admin panel manages.
@@ -11,11 +11,18 @@ to, and everything the admin panel manages.
 ```bash
 cd server
 npm install
-cp .env.example .env        # then edit ADMIN_EMAIL / ADMIN_PASSWORD / JWT_SECRET / CLOUDINARY_*
-npx prisma migrate dev --name init
+cp .env.example .env        # then edit DATABASE_URL / ADMIN_EMAIL / ADMIN_PASSWORD / JWT_SECRET / CLOUDINARY_*
+npx prisma migrate deploy   # applies the existing migration history to your DATABASE_URL
 npm run seed                 # creates the admin login + 2 sample events
 npm run dev                   # http://localhost:4000
 ```
+
+`DATABASE_URL` needs a real Postgres instance (Aiven/Render/Supabase/Neon
+all have free tiers) — `prisma/schema.prisma` targets `postgresql`, not a
+local file. If you're pointing local dev at the same database you deploy
+with, use `migrate deploy` (applies existing migrations only) day-to-day;
+only use `migrate dev --name ...` when you're intentionally adding a new
+migration, since it can prompt to reset the database on drift.
 
 `npm run seed` is idempotent — safe to re-run. It only creates the admin
 account if one doesn't already exist for `ADMIN_EMAIL`, and only seeds
@@ -112,14 +119,41 @@ support in Prisma):
 - Events: `draft | published`
 - Event registrations: `pending | confirmed | cancelled`
 
+## Deploying to Render
+
+`datasource db` in `prisma/schema.prisma` is set to `postgresql` (SQLite
+is dev-only — Render's disk is ephemeral, so a file-based DB gets wiped on
+every redeploy). `render.yaml` at the repo root defines two services:
+
+- **`moonlit-website-api`** — this Express app (`rootDir: server`). Build
+  command runs `npm install`, generates the Prisma client, applies pending
+  migrations (`prisma migrate deploy`), and re-runs the idempotent seed.
+- **`moonlit-website`** — the static frontend (repo root), served as-is.
+
+To deploy:
+1. Push this repo to GitHub (already done if you're reading this on Render).
+2. In the Render dashboard: **New → Blueprint**, point it at the repo. It
+   reads `render.yaml` and creates both services.
+3. Render will prompt for every env var marked `sync: false` in
+   `render.yaml` — paste in your real values (`DATABASE_URL` from your
+   Postgres provider, `JWT_SECRET`, `ADMIN_EMAIL`/`ADMIN_PASSWORD`,
+   `CLOUDINARY_*`, `GMAIL_*`, `SMSGATE_*`, `VAPID_*`). These are never
+   committed to the repo.
+4. If you rename either service, update the cross-references: the API's
+   `CORS_ORIGINS`/`PORTAL_URL` env vars point at the static site's URL, and
+   `assets/config.js`'s `PROD_API_BASE` points at the API's URL.
+5. `assets/config.js` auto-detects `localhost` vs deployed and picks the
+   right API base — no per-environment file to swap.
+
+Since `prisma` (the CLI) needs to run at build time, it's a regular
+`dependency`, not a `devDependency` — some hosts skip installing
+devDependencies in production builds.
+
 ## Notes for production
 
-This is built for local/dev use as requested. Before deploying anywhere
-public:
-- Switch `datasource db` in `prisma/schema.prisma` from `sqlite` to
-  `postgresql` (or `mysql`) and point `DATABASE_URL` at a real server —
-  a single-file SQLite DB isn't safe for concurrent writes under real load.
-- Tighten `CORS_ORIGINS` to your real domain only.
-- Put the API behind HTTPS and set a long, unique `JWT_SECRET`.
+- Tighten `CORS_ORIGINS` to your real domain only (already done via
+  `render.yaml` if you used the Blueprint above).
+- Put the API behind HTTPS (Render does this automatically) and set a
+  long, unique `JWT_SECRET`.
 - Add rate-limiting to the public POST endpoints (volunteer/blood/contact
   forms are unauthenticated and open to spam as-is).
