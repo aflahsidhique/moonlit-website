@@ -128,7 +128,9 @@ every redeploy). `render.yaml` at the repo root defines two services:
 - **`moonlit-website-api`** — this Express app (`rootDir: server`). Build
   command runs `npm install`, generates the Prisma client, applies pending
   migrations (`prisma migrate deploy`), and re-runs the idempotent seed.
-- **`moonlit-website`** — the static frontend (repo root), served as-is.
+- **`moonlit-website`** — the React/Vite SPA (`client/`), built with
+  `npm run build` and served from `client/dist` with an SPA-fallback
+  rewrite (`/* → /index.html`) so client-side routes resolve on refresh.
 
 To deploy:
 1. Push this repo to GitHub (already done if you're reading this on Render).
@@ -141,9 +143,9 @@ To deploy:
    committed to the repo.
 4. If you rename either service, update the cross-references: the API's
    `CORS_ORIGINS`/`PORTAL_URL` env vars point at the static site's URL, and
-   `assets/config.js`'s `PROD_API_BASE` points at the API's URL.
-5. `assets/config.js` auto-detects `localhost` vs deployed and picks the
-   right API base — no per-environment file to swap.
+   `client/src/lib/api.js`'s `PROD_API_BASE` points at the API's URL.
+5. `client/src/lib/api.js` auto-detects `localhost` vs deployed and picks
+   the right API base — no per-environment file to swap.
 
 Since `prisma` (the CLI) needs to run at build time, it's a regular
 `dependency`, not a `devDependency` — some hosts skip installing

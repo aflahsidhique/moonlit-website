@@ -23,7 +23,7 @@ services:
       - key: CORS_ORIGINS
         value: https://moonlit-website.onrender.com
       - key: PORTAL_URL
-        value: https://moonlit-website.onrender.com/portal/index.html
+        value: https://moonlit-website.onrender.com/portal
       - key: CLOUDINARY_CLOUD_NAME
         sync: false
       - key: CLOUDINARY_API_KEY
@@ -47,11 +47,15 @@ services:
       - key: VAPID_SUBJECT
         sync: false
 
-  # Public site + admin panel + volunteer portal — plain static HTML/JS/CSS,
-  # no build step. assets/config.js points this at moonlit-website-api.
+  # Public site + admin panel + volunteer portal — React/Vite SPA (client/).
+  # lib/api.js auto-detects this domain and points at moonlit-website-api.
   - name: moonlit-website
     type: web
     runtime: static
-    rootDir: .
-    staticPublishPath: .
-    buildCommand: ""
+    rootDir: client
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

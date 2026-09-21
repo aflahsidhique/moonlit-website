@@ -14,8 +14,8 @@ const BLOOD_RESPONSES = ["accept", "decline", "already_donated", "unavailable"];
 const RESET_TOKEN_TTL_MS = 60 * 60 * 1000; // 1 hour
 
 function portalResetUrl() {
-  const base = process.env.PORTAL_URL || "http://localhost:5500/portal/index.html";
-  return base.replace(/index\.html$/, "reset-password.html");
+  const base = process.env.PORTAL_URL || "http://localhost:5173/portal";
+  return base.replace(/\/$/, "") + "/reset-password";
 }
 
 // Public — volunteer portal login. Only approved volunteers (who have a

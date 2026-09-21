@@ -160,7 +160,7 @@ router.post("/:id/notify", requireAuth, async (req, res, next) => {
       const subs = await prisma.pushSubscription.findMany({ where: { volunteerId: volunteer.id } });
       for (const sub of subs) {
         try {
-          await sendPush(sub, { title: "Urgent Blood Request", body: bloodRequest.bloodGroup + " needed at " + bloodRequest.hospital, url: "/portal/dashboard.html" });
+          await sendPush(sub, { title: "Urgent Blood Request", body: bloodRequest.bloodGroup + " needed at " + bloodRequest.hospital, url: "/portal" });
           summary.push.sent++;
         } catch (e) { summary.push.failed++; }
       }

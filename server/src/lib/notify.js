@@ -7,7 +7,8 @@ function esc(str) {
 }
 
 function portalUrl() {
-  return process.env.PORTAL_URL || "http://localhost:5500/portal/index.html";
+  const base = process.env.PORTAL_URL || "http://localhost:5173/portal";
+  return base.replace(/\/$/, "") + "/login";
 }
 
 // Indian mobile numbers are collected without a country code on the forms
