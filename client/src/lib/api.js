@@ -1,10 +1,13 @@
-// Mirrors the legacy static site's assets/config.js — auto-detects local
-// dev vs the deployed Render backend so no manual env swapping is needed.
-// If you rename the Render API service, update PROD_API_BASE to match.
-const PROD_API_BASE = "https://moonlit-website-api.onrender.com/api";
-const LOCAL_API_BASE = "http://localhost:4000/api";
+// Auto-detects local dev vs the deployed Render backend so no manual env
+// swapping is needed. Every base can be overridden from client/.env (see
+// .env.example); the literals below are the fallbacks used when a build
+// runs without a .env file — e.g. on Render.
+const PROD_API_BASE =
+  import.meta.env.VITE_API_BASE_PROD || "https://moonlit-website-api.onrender.com/api";
+const LOCAL_API_BASE = import.meta.env.VITE_API_BASE_LOCAL || "http://localhost:4000/api";
 
 const isLocal = ["localhost", "127.0.0.1", ""].includes(window.location.hostname);
+// VITE_API_BASE, when set, wins over the hostname check entirely.
 export const API_BASE = import.meta.env.VITE_API_BASE || (isLocal ? LOCAL_API_BASE : PROD_API_BASE);
 
 // POSTs a plain object as JSON to `${API_BASE}${path}`, throwing an Error
