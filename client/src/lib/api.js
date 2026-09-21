@@ -5,9 +5,7 @@ const PROD_API_BASE = "https://moonlit-website-api.onrender.com/api";
 const LOCAL_API_BASE = "http://localhost:4000/api";
 
 const isLocal = ["localhost", "127.0.0.1", ""].includes(window.location.hostname);
-console.log("🚀 ~ isLocal:", isLocal)
 export const API_BASE = import.meta.env.VITE_API_BASE || (isLocal ? LOCAL_API_BASE : PROD_API_BASE);
-console.log("🚀 ~ API_BASE:", API_BASE)
 
 // POSTs a plain object as JSON to `${API_BASE}${path}`, throwing an Error
 // with the server's message (or a generic fallback) on non-2xx responses.

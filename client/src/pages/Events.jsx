@@ -31,9 +31,7 @@ export default function Events() {
  
 
   const showUpcoming = filter !== "past";
-  console.log("🚀 ~ Events ~ showUpcoming:", showUpcoming)
   const showPast = filter !== "upcoming";
-  console.log("🚀 ~ Events ~ showPast:", showPast)
 
   return (
     <PageFx>
